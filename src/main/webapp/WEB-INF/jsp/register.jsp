@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
     <head>
         <title>RegisterPage</title>
@@ -31,51 +33,37 @@
     <body>
     <div class="register-form">
         <div class="container-fluid">
-            <form>
+            <form:form method="post" modelAttribute="user" >
                 <h2 >Register</h2>
                 <table align="center">
                     <tr>
                         <td>Username:</td>
                         <td>
-                            <input type="text" name="user" placeholder="Username">
+                            <form:input type="text" path="username"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Email Id:</td>
                         <td>
-                            <input type="email" name="email" placeholder="Email">
+                            <form:input type="email" path="email_id"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Mobile number:</td>
                             <td>
-                            <input type="number" name="phone_no" placeholder="Mobile Number">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gender:</td>
-                        <td>
-                            <input type="radio" name="gender" value="Male" >Male
-                            <input type="radio" name="gender" value="Female" >Female
-                            <input type="radio" name="gender" value="Others">Others
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td>
-                            <input type="password" name="password" placeholder="Password">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Confirm Password:</td>
-                        <td>
-                            <input type="password" name="confirm_password" placeholder="Confirm Password">
+                            <form:input type="text" path="phone_no"/>
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>Password:</td>
+                        <td>
+                            <form:input type="password" path="password"/>
+                        </td>
+                    </tr>
                 </table>
-                <button class="btn btn-dark btn-block mt-3" >Submit</button>
-            </form>
+                <form:button class="btn btn-dark btn-block mt-3" >Submit</form:button>
+            </form:form>
         </div>
     </div>
     </body>

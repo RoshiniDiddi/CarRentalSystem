@@ -1,7 +1,8 @@
 package com.netcracker.CarRentalSystem.dao;
 
-import com.netcracker.CarRentalSystem.controller.bean.user;
+import com.netcracker.CarRentalSystem.controller.bean.User;
 
 public interface UserDao {
-    user getUserByUsername(String username);
+    User getUserByUsername(String username);
+    int createNewUser(User u);
 }

@@ -1,8 +1,10 @@
 package com.netcracker.CarRentalSystem.service;
 
 
-import com.netcracker.CarRentalSystem.controller.bean.user;
+import com.netcracker.CarRentalSystem.controller.bean.User;
 
 public interface UserService {
-    user getUserByUsername(String username);
+    User getUserByUsername(String username);
+
+    int createNewUser(User u);
 }
