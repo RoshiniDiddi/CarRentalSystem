@@ -24,7 +24,7 @@
             <div class="container-fluid">
             <h2>Sign In</h2>
                 <form method="post">
-                    <input type="text" class="form-control mt-3" name="userId" placeholder="User ID"/>
+                    <input type="text" class="form-control mt-3" name="username" placeholder="UserName"/>
                     <input type="password" class="form-control mt-3" name="password" placeholder="password"/>
                     <button class="btn btn-dark btn-block mt-3" >Submit</button>
                 </form>
