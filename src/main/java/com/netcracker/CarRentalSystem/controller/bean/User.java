@@ -4,8 +4,8 @@ public class User {
     private String username;
     private String password;
     //private String gender;
-    private String email_id;
-    private String phone_no;
+    /*private String email_id;
+    private String phone_no;*/
 
     /*public String getGender() {
         return gender;
@@ -15,7 +15,7 @@ public class User {
         this.gender = gender;
     }*/
 
-    public String getEmail_id() {
+    /*public String getEmail_id() {
         return email_id;
     }
 
@@ -29,7 +29,7 @@ public class User {
 
     public void setPhone_no(String phone_no) {
         this.phone_no = phone_no;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -37,8 +37,8 @@ public class User {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 //", gender='" + gender + '\'' +
-                ", email='" + email_id + '\'' +
-                ", phone_no=" + phone_no +
+                //", email='" + email_id + '\'' +
+                //", phone_no=" + phone_no +
                 '}';
     }
 

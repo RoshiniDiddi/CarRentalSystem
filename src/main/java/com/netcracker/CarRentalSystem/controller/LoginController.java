@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
     @Autowired
+
     UserService userService;
 
     @RequestMapping(value="/register",method=RequestMethod.GET)
@@ -42,7 +43,7 @@ public class LoginController {
     }
 
     @RequestMapping(value="/login",method=RequestMethod.POST)
-    public String carsPage(ModelMap model, @RequestParam String username, @RequestParam String password){
+    public String loginUser(ModelMap model, @RequestParam String username, @RequestParam String password){
         /*if(userId.equals("admin") && password.equals("root")){
             return "cars";
         }
@@ -50,11 +51,13 @@ public class LoginController {
         User u=userService.getUserByUsername(username);
         if(u.getPassword().equals(password)){
             model.put("Username:",username);
-            return "cars";
+            return "redirect:cars";
         }
         model.put("errorMessage","Please enter correct credentials");
         return "login";
     }
+
+
 
 
 }

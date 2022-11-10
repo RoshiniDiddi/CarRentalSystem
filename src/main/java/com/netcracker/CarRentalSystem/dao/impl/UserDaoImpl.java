@@ -26,12 +26,13 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
     }
     @Override
     public User getUserByUsername(String username) {
-        String sql="select password from User where username=?";
+        String sql="select password from user where username=?";
         return getJdbcTemplate().queryForObject(sql,new Object[]{username},new RowMapper<User>(){
             public User mapRow(ResultSet rs, int rowNum)throws SQLException{
                 User u=new User();
                 u.setUsername(username);
                 u.setPassword(rs.getString(1));
+
                 return u;
             }
         });
@@ -39,18 +40,15 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 
     @Override
     public int createNewUser(User u) {
-        String sql="INSERT INTO User(username,email_id,phone_no,password) VALUES (?, ?, ?, ?, ?);";
-        return getJdbcTemplate().update(new PreparedStatementCreator() {
-            @Override
-            public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-                PreparedStatement ps = con.prepareStatement(sql);
-                ps.setString(1,u.getUsername());
-                ps.setString(2,u.getPassword());
-                ps.setString(3,u.getEmail_id());
-                ps.setString(4,u.getPhone_no());
-                //ps.setString(5,u.getGender());
-                return null;
-            }
+        String sql="INSERT INTO User(username,email_id,phone_no,password) VALUES (?, ?, ?, ?)";
+        return getJdbcTemplate().update(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,u.getUsername());
+            ps.setString(2,u.getPassword());
+            //ps.setString(3,u.getEmail_id());
+            //ps.setString(4,u.getPhone_no());
+            //ps.setString(5,u.getGender());
+            return null;
         });
     }
 }
