@@ -16,23 +16,18 @@
         </style>
     </head>
     <body>
-        <c:if test="${not empty errorMsg}">
-             <c:out value="${errorMsg}"></c:out>
-        </c:if>
         <select placeholder="Sort" onchange="location=this.value">
-            <option>Select sort By</option>
             <option value="/sortByModel">Sort by model</option>
             <option value="/priceSortingAscending">Sort price low to high</option>
             <option value="/priceSortingDescending">Sort price high to low</option>
         </select>
         <button><a href="/cars">Select Date and Book Car</a></button>
         <table align="center">
-            <h2>The Car Details are:</h2>
+            <h2>The Sorted Car Details are:</h2>
             <tr>
                 <th>Car Id</th>
                 <th>Car Model</th>
                 <th>Rent Price</th>
-                <th>Seaters</th>
                 <th>Booking Status</th>
                 <th>Book</th>
             </tr>
@@ -41,10 +36,9 @@
                     <td>${car.car_id}</td>
                     <td>${car.model}</td>
                     <td>${car.price}</td>
-                    <td>${car.seater}</td>
                     <td>${car.booked}</td>
                     <td><a href="/carDetails/${car.car_id}">Book Now</td>
-                </tr>
+                    </tr>
             </c:forEach>
         </table>
     </body>

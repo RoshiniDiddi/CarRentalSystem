@@ -51,7 +51,7 @@ public class LoginController {
         User u=userService.getUserByUsername(username);
         if(u.getPassword().equals(password)){
             model.put("Username:",username);
-            return "redirect:cars";
+            return "redirect:/carDetails";
         }
         model.put("errorMessage","Please enter correct credentials");
         return "login";

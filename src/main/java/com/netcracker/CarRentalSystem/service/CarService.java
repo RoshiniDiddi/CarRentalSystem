@@ -8,4 +8,12 @@ import java.util.List;
 @Component
 public interface CarService {
     List<Cars> getCarsByStartTimeEndTimeAndModel(LocalTime start, LocalTime end, String model);
+    Cars getCarDetails(int id);
+
+    List<Cars> getCarsSortedByPriceAscending();
+    List<Cars> getCarsSortedByPriceDescending();
+
+    List<Cars> getAllCars();
+
+    List<Cars> getCarsSortedByModel();
 }

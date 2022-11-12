@@ -18,4 +18,35 @@ public class CarServiceImpl implements CarService {
         List<Cars> cars= carsDao.getCarsByStartTimeEndTimeAndModel(start,end,model);
         return cars;
     }
+
+    @Override
+    public Cars getCarDetails(int id) {
+        Cars cars=carsDao.getCarDetails(id);
+        return cars;
+    }
+
+    @Override
+    public List<Cars> getCarsSortedByPriceAscending() {
+        List<Cars> cars= carsDao.getCarsSortedByPriceAscending();
+        return cars;
+    }
+
+    @Override
+    public List<Cars> getCarsSortedByPriceDescending() {
+        List<Cars> cars= carsDao.getCarsSortedByPriceDescending();
+        return cars;
+    }
+
+    @Override
+    public List<Cars> getAllCars() {
+        List<Cars> cars=carsDao.getAllCars();
+        return cars;
+    }
+
+    @Override
+    public List<Cars> getCarsSortedByModel() {
+        List<Cars> cars=carsDao.getCarsSortedByModel();
+        return cars;
+    }
+
 }

@@ -9,6 +9,14 @@ import java.util.List;
 @Repository
 public interface CarsDao {
 
-
+    Cars getCarDetails(int id);
     List<Cars> getCarsByStartTimeEndTimeAndModel(LocalTime start, LocalTime end, String model);
+
+    List<Cars> getCarsSortedByPriceAscending();
+
+    List<Cars> getCarsSortedByPriceDescending();
+
+    List<Cars> getAllCars();
+
+    List<Cars> getCarsSortedByModel();
 }
