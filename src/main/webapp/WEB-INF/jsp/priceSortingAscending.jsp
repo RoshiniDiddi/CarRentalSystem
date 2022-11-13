@@ -13,18 +13,22 @@
                 text-align:center;
                 padding:5px;
             }
-
+            h2{
+               text-align:center;
+               font-family:sans-seriff;
+               }
         </style>
     </head>
     <body>
-    <select placeholder="Sort" onchange="location=this.value">
+        <select placeholder="Sort" onchange="location=this.value">
+                <option>Select sort By</option>
                 <option value="/sortByModel">Sort by model</option>
                 <option value="/priceSortingAscending">Sort price low to high</option>
                 <option value="/priceSortingDescending">Sort price high to low</option>
             </select>
             <button><a href="/cars">Select Date and Book Car</a></button>
         <table align="center">
-            <h2>The Sorted Car Details are:</h2>
+            <h2>Sorted Car Details By Price Ascending</h2>
             <tr>
                 <th>Car Id</th>
                 <th>Car Model</th>

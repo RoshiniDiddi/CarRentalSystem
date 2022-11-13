@@ -16,4 +16,6 @@ public interface CarService {
     List<Cars> getAllCars();
 
     List<Cars> getCarsSortedByModel();
+
+    Cars getCarDetailsByRegNumber(int reg_no);
 }

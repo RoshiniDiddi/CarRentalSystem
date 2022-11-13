@@ -59,17 +59,43 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
     }
 
     @Override
+    public Cars getCarDetailsByRegNumber(int reg_no) {
+        String sql= "select * from cars where reg_no=?";
+        return getJdbcTemplate().queryForObject(sql,new Object[]{reg_no},new RowMapper<Cars>(){
+            @Override
+            public Cars mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Cars car=new Cars();
+                car.setCar_id(rs.getInt("car_id"));
+                car.setSeater(rs.getInt("seater"));
+                car.setPrice(rs.getInt("price"));
+                car.setModel(rs.getString("model"));
+                car.setBooked(rs.getString("booked"));
+                car.setReg_no(rs.getInt("reg_no"));
+                return car;
+            }
+        });
+    }
+
+    @Override
     public Cars getCarDetails(int id) {
-        String sql="select * from cars where car_id=?";
-        return getJdbcTemplate().queryForObject(sql,new Object[]{id},new RowMapper<Cars>(){
+        String sql="update cars set booked='Not Available' where car_id=?";
+        getJdbcTemplate().update(sql,id);
+
+        String sql1="select * from cars where car_id=?";
+
+        String sql2="update cars set reg_no=? where car_id=?";
+        int reg_no= (int) (Math.random()*1000);
+        getJdbcTemplate().update(sql2,reg_no,id);
+        return getJdbcTemplate().queryForObject(sql1,new Object[]{id},new RowMapper<Cars>(){
             @Override
             public Cars mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Cars car=new Cars();
                 car.setCar_id(id);
-                car.setSeater(rs.getInt(7));
-                car.setPrice(rs.getInt(4));
-                car.setModel(rs.getString(1));
-                car.setBooked("Not Available");
+                car.setSeater(rs.getInt("seater"));
+                car.setPrice(rs.getInt("price"));
+                car.setModel(rs.getString("model"));
+                car.setBooked(rs.getString("booked"));
+                car.setReg_no(rs.getInt("reg_no"));
                 return car;
             }
         });
@@ -78,7 +104,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
     @Override
     public List<Cars> getCarsByStartTimeEndTimeAndModel(LocalTime start, LocalTime end, String model) {
 
-        String sql="select * from cars where start_time<=? and end_time>=?";
+        String sql="select * from cars where start_time<=? and end_time>=? and booked!='Not Available'";
         List<Cars> result=new ArrayList<>();
         List<Map<String,Object>> query =getJdbcTemplate().queryForList(sql,start,end);
         for(Map<String,Object> map : query){
@@ -88,6 +114,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
             cars.setModel((String) map.get("model"));
             cars.setBooked((String) map.get("booked"));
             cars.setCar_id((Integer) map.get("car_id"));
+            //cars.setReg_no((Integer) map.get("reg_no"));
             result.add(cars);
         }
     return result;
@@ -126,6 +153,4 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
         }
         return result;
     }
-
-
 }

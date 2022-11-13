@@ -8,19 +8,13 @@ public class Cars {
 
     private String model;
 
-    public int getSeater() {
-        return seater;
-    }
 
-    public void setSeater(int seater) {
-        this.seater = seater;
-    }
 
     private int seater;
     private LocalTime start_time;
     private LocalTime end_time;
     private int price;
-
+    private int reg_no;
 
     private String booked;
 
@@ -80,5 +74,21 @@ public class Cars {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getSeater() {
+        return seater;
+    }
+
+    public void setSeater(int seater) {
+        this.seater = seater;
+    }
+
+    public int getReg_no() {
+        return reg_no;
+    }
+
+    public void setReg_no(int reg_no) {
+        this.reg_no = reg_no;
     }
 }

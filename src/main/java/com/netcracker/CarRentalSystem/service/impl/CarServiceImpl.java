@@ -49,4 +49,10 @@ public class CarServiceImpl implements CarService {
         return cars;
     }
 
+    @Override
+    public Cars getCarDetailsByRegNumber(int reg_no) {
+        Cars car=carsDao.getCarDetailsByRegNumber(reg_no);
+        return car;
+    }
+
 }

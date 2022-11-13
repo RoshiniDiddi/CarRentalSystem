@@ -26,7 +26,7 @@
                     <input type="text" class="form-control mt-3" name="start" placeholder="Start Time"/>
                     <input type="text" class="form-control mt-3" name="end" placeholder="End Time"/>
                     <input type="text" class="form-control mt-3" name="model" placeholder="Model"/>
-                    <button type="Submit" class="btn-btn-primary btn-block">Search</button>
+                    <button type="Submit">Search</button>
                 </form>
         </div>
     </div>

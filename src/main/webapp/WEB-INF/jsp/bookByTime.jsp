@@ -13,31 +13,14 @@
                 text-align:center;
                 padding:5px;
             }
-            h2{
-                font-family:sans-seriff;
-                text-align:center;
-            }
         </style>
     </head>
     <body>
         <c:if test="${not empty errorMsg}">
              <c:out value="${errorMsg}"></c:out>
         </c:if>
-        <select placeholder="Sort" onchange="location=this.value">
-            <option>Select sort By</option>
-            <option value="/sortByModel">Sort by model</option>
-            <option value="/priceSortingAscending">Sort price low to high</option>
-            <option value="/priceSortingDescending">Sort price high to low</option>
-        </select>
-        <br></br>
-        <button><a href="/cars">Select Date and Book Car</a></button>
-        <br></br>
-        <form method="post">
-        <input type="number" name="reg_no" placeholder="Enter Registration number"/>
-        <button type="submit">Get Car Details by Registration number</button>
-        </form>
         <table align="center">
-            <h2>All Existing Car Details </h2>
+            <h2>The Car Details are:</h2>
             <tr>
                 <th>Car Id</th>
                 <th>Car Model</th>
@@ -53,9 +36,10 @@
                     <td>${car.price}</td>
                     <td>${car.seater}</td>
                     <td>${car.booked}</td>
-                    <td><a href="/carDetails/${car.car_id}">Book Now</td>
+                    <td><a href="/bookByTime/${car.car_id}">Book Now</td>
                 </tr>
             </c:forEach>
         </table>
+        <a href="/carDetails">return to main page</a>
     </body>
 </html>
