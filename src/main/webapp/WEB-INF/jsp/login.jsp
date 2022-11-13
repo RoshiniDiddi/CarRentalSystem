@@ -6,14 +6,19 @@
         <title>LoginPage</title>
         <link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
         <style>
+        body {
+                  background-image: url(https://thumbs.dreamstime.com/b/car-rental-man-suit-holding-signboard-text-written-background-45141516.jpg);
+                  background-size:cover;
+                  color:black;
+                }
             .login-form{
                 width:400px;
                 height:300px;
                 position:absolute;
-                background-color: #FFB6C1;
+                background-color: #fffff;
                 border-radius:5px;
-                top:50%;
-                left:50%;
+                top:40%;
+                left:75%;
                 margin-right:-50%;
                 transform:translate(-50%,-50%);
             }
@@ -36,7 +41,7 @@
                     <input type="password" class="form-control mt-3" name="password" placeholder="Password"/>
                     <button class="btn btn-dark btn-block mt-3" >Submit</button>
                     New User?
-                    <a href="/register" class="btn-btn-block mt-3"style="text-align:center">Register</a>
+                    <a style="color:#dad3ed" href="/register" class="btn-btn-block mt-3"style="text-align:center">Register</a>
                 </form>
             </div>
         </div>

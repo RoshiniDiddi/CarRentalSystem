@@ -55,4 +55,9 @@ public class CarServiceImpl implements CarService {
         return car;
     }
 
+    @Override
+    public void returnCarDetails(int reg_no) {
+        carsDao.returnCarDetails(reg_no);
+    }
+
 }

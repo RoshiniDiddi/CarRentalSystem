@@ -18,4 +18,6 @@ public interface CarService {
     List<Cars> getCarsSortedByModel();
 
     Cars getCarDetailsByRegNumber(int reg_no);
+
+    void returnCarDetails(int reg_no);
 }

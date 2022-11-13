@@ -18,22 +18,9 @@
         </style>
     </head>
     <body>
-        <table align="center">
-        <h3>Car Details with Registration Number: ${cars.reg_no}</h3>
-            <tr>
-                <td>Car Id:</td>
-                <td>${cars.car_id}</td>
-            </tr>
-            <tr>
-                <td>CarModel:</td>
-                <td>${cars.model}</td>
-            </tr>
-
-            <tr>
-                <td>Rent Price</td>
-                <td>${cars.price}</td>
-            </tr>
-
-        </table>
+    <form method="post">
+        <input type="number" name="reg_no"/>
+        <button type="submit"> Return</button>
+        </form>
     </body>
 </html>

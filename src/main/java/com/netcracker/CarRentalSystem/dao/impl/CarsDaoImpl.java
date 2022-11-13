@@ -27,7 +27,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
     @Override
     public List<Cars> getAllCars() {
         List<Cars> result=new ArrayList<>();
-        String sql="select * from cars";
+        String sql="select * from cars where booked='Available'";
         List<Map<String,Object>> query =getJdbcTemplate().queryForList(sql);
         for(Map<String,Object> map : query){
             Cars cars=new Cars();
@@ -44,7 +44,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
     @Override
     public List<Cars> getCarsSortedByModel() {
         List<Cars> result=new ArrayList<>();
-        String sql="select * from cars order by model";
+        String sql="select * from cars where booked='Available' order by model";
         List<Map<String,Object>> query =getJdbcTemplate().queryForList(sql);
         for(Map<String,Object> map : query){
             Cars cars=new Cars();
@@ -84,7 +84,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
         String sql1="select * from cars where car_id=?";
 
         String sql2="update cars set reg_no=? where car_id=?";
-        int reg_no= (int) (Math.random()*1000);
+        int reg_no= (int) (Math.random()*10000);
         getJdbcTemplate().update(sql2,reg_no,id);
         return getJdbcTemplate().queryForObject(sql1,new Object[]{id},new RowMapper<Cars>(){
             @Override
@@ -123,7 +123,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
     @Override
     public List<Cars> getCarsSortedByPriceAscending() {
         List<Cars> result=new ArrayList<>();
-        String sql="select * from cars order by price";
+        String sql="select * from cars where booked='Available' order by price";
         List<Map<String,Object>> query =getJdbcTemplate().queryForList(sql);
         for(Map<String,Object> map : query){
             Cars cars=new Cars();
@@ -140,7 +140,7 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
     @Override
     public List<Cars> getCarsSortedByPriceDescending() {
         List<Cars> result=new ArrayList<>();
-        String sql="select * from cars order by price desc";
+        String sql="select * from cars where booked!='Not Available' order by price desc";
         List<Map<String,Object>> query =getJdbcTemplate().queryForList(sql);
         for(Map<String,Object> map : query){
             Cars cars=new Cars();
@@ -153,4 +153,11 @@ public class CarsDaoImpl extends JdbcDaoSupport implements CarsDao {
         }
         return result;
     }
+
+    @Override
+    public void returnCarDetails(int reg_no) {
+        String sql = "update cars set booked='Available',reg_no=0 where reg_no=?";
+        getJdbcTemplate().update(sql, reg_no);
+    }
+
 }

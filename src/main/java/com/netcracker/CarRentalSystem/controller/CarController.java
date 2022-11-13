@@ -46,7 +46,6 @@ public class CarController {
         LocalTime st_time=LocalTime.parse(start);
         LocalTime ed_time=LocalTime.parse(end);
         List<Cars> cars=carService.getCarsByStartTimeEndTimeAndModel(st_time,ed_time,model);
-        System.out.println(cars);
         if(!cars.isEmpty()){
             modview.addObject("carList",cars);
             modview.setViewName("/bookByTime");
@@ -68,6 +67,16 @@ public class CarController {
         Cars car = carService.getCarDetailsByRegNumber(reg_no);
         modview.addObject("cars",car);
         return modview;
+    }
+    @RequestMapping(value="/returnCar",method=RequestMethod.GET)
+    public String returnCar(){
+        return "returnCar";
+    }
+    @RequestMapping(value="/returnCar",method=RequestMethod.POST)
+    public String ReturnCar(@RequestParam int reg_no){
+        carService.returnCarDetails(reg_no);
+        System.out.println("Returned");
+        return "redirect:/carDetails";
     }
     @RequestMapping(value="/priceSortingAscending",method=RequestMethod.GET)
     public ModelAndView SortedPricePage(){

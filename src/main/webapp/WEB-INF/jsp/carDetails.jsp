@@ -3,7 +3,9 @@
 <html >
     <head>
         <link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+
         <style>
+
             table ,td,th{
               border: 1px solid;
             }
@@ -20,6 +22,8 @@
         </style>
     </head>
     <body>
+    <img src="https://media.istockphoto.com/vectors/cars-icon-set-vector-id165072817?k=6&m=165072817&s=612x612&w=0&h=bLsx3TWHcLVHO_WYuipdYVC5juUxuV2lTUviAlBWj40="
+    style="float:right;width:200px;height:180px;">
         <c:if test="${not empty errorMsg}">
              <c:out value="${errorMsg}"></c:out>
         </c:if>
@@ -57,5 +61,6 @@
                 </tr>
             </c:forEach>
         </table>
+        <button><a href="/returnCar">Return Car</a></button>
     </body>
 </html>
