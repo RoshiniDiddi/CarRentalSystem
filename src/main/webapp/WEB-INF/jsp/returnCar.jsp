@@ -15,11 +15,21 @@
                         text-align:center;
                         padding:2px;
                     }
+        input{
+        width:300px;
+        }
+        img{
+            width:50%;
+            height:auto;
+            margin-left:250px;
+            margin-top:200px;
+        }
         </style>
     </head>
     <body>
-    <form method="post">
-        <input type="number" name="reg_no"/>
+    <img src="https://th.bing.com/th/id/OIP.UsbhIe-n6APw97TFqmWuegHaA4?w=372&h=51&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+    <form method="post" style="margin-left:400px;margin-top:50px;">
+        <input type="number" name="reg_no" placeholder="Enter Registration Number"/>
         <button type="submit"> Return</button>
         </form>
     </body>

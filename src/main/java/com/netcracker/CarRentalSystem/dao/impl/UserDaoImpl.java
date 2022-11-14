@@ -44,9 +44,9 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
         return getJdbcTemplate().update(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1,u.getUsername());
-            ps.setString(2,u.getPassword());
-            ps.setString(3,u.getEmail_id());
-            ps.setString(4,u.getPhone_no());
+            ps.setString(2,u.getEmail_id());
+            ps.setString(3,u.getPhone_no());
+            ps.setString(4,u.getPassword());
             return ps;
         });
     }
