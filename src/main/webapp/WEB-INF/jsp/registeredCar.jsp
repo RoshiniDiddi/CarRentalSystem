@@ -5,6 +5,10 @@
         <title>Booking</title>
         <link href="webjars/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
         <style>
+        body{
+            background-image:url(https://th.bing.com/th/id/R.de0f4bf6e8075312a6eb20ad7044571a?rik=lfNj3XxNGm8pNw&riu=http%3a%2f%2fwww.hdwallpaperspulse.com%2fwp-content%2fuploads%2f2016%2f03%2f06%2fgrey-car-background.jpeg&ehk=Uj4%2fbbaFxFblSiF%2fcim9Q3DX8UR%2fQxr043KTMovOTXU%3d&risl=&pid=ImgRaw&r=0);
+            background-size:cover;
+        }
         h3{
             text-align:center;
              font-family:sans-seriff;

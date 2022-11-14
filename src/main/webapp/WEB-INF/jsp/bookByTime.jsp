@@ -14,21 +14,6 @@
                 padding:5px;
             }
         </style>
-        <script type="text/javascript">
-            function EnableDisable(booked) {
-                //Reference the Button.
-                var btnSubmit = document.getElementById("btnSubmit");
-
-                //Verify the TextBox value.
-                if (txtPassportNumber.value.trim() != "") {
-                    //Enable the TextBox when TextBox has value.
-                    btnSubmit.disabled = false;
-                } else {
-                    //Disable the TextBox when TextBox is empty.
-                    btnSubmit.disabled = true;
-                }
-            };
-        </script>
     </head>
     <body>
         <c:if test="${not empty errorMsg}">
@@ -51,7 +36,7 @@
                     <td>${car.price}</td>
                     <td>${car.seater}</td>
                     <td>${car.booked}</td>
-                    <td><a href="/bookByTime/${car.car_id} " onkeyup="EnableDisable(${car.booked})" disabled="disabled">Book Now</td>
+                    <td><a href="/bookByTime/${car.car_id} ">Book Now</td>
                 </tr>
             </c:forEach>
         </table>
